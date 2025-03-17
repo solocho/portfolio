@@ -17,7 +17,17 @@ const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        alert('Your message has been sent! We will get back to you soon.');
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // WhatsApp integration
+        const whatsappNumber = '25446415318';
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=Name:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
+
+        window.open(whatsappLink, '_blank');
+        alert('Your message has been sent via WhatsApp!');
         contactForm.reset();
     });
 }
